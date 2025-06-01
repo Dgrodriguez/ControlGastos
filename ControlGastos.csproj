@@ -281,6 +281,7 @@
     <Content Include="ControlGastosModeldb.edmx.diagram">
       <DependentUpon>ControlGastosModeldb.edmx</DependentUpon>
     </Content>
+    <Content Include="Procfile" />
     <None Include="Scripts\jquery-3.6.3.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.3.js" />
     <Content Include="Scripts\jquery-3.6.3.min.js" />
