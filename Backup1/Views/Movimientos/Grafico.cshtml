@@ -1,0 +1,55 @@
+﻿<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<form id="formGrafico" action="@Url.Action("Grafico", "Movimientos")" method="get">
+    <h2 class="mb-3 text-center">Grafico Comparativo de Presupuesto y Ejecucion</h2>
+    <div class="d-flex align-items-center gap-3 mb-3">
+        <label for="FechaInicio">Fecha Inicio:</label>
+        <input type="date" id="FechaInicio" name="FechaInicio" class="form-control" required>
+
+        <label for="FechaFin">Fecha Fin:</label>
+        <input type="date" id="FechaFin" name="FechaFin" class="form-control" required>
+
+        <button type="submit" class="btn btn-success">Buscar</button>
+    </div>
+</form>
+
+<!-- Contenedor del gráfico, inicialmente oculto -->
+<canvas id="graficoGastos" width="400" height="200" max-height="300" style="display: none;"></canvas>
+<script>
+    document.getElementById("formGrafico").addEventListener("submit", function(event) {
+        event.preventDefault(); // Evita la recarga de la página
+
+        // Mostrar el gráfico solo después de la búsqueda
+        document.getElementById("graficoGastos").style.display = "block";
+
+       fetch('@Url.Action("ObtenerDatosGrafico", "Movimientos")' + '?FechaInicio=' + document.getElementById('FechaInicio').value + '&FechaFin=' + document.getElementById('FechaFin').value)
+            .then(response => response.json())
+            .then(datos => {
+                var ctx = document.getElementById('graficoGastos').getContext('2d');
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: datos.map(d => d.Tipo),
+                        datasets: [
+                            {
+                                label: 'Presupuestado',
+                                data: datos.map(d => d.Presupuestado),
+                                backgroundColor: 'rgba(54, 162, 235, 0.7)'
+                            },
+                            {
+                                label: 'Ejecutado',
+                                data: datos.map(d => d.Ejecutado),
+                                backgroundColor: 'rgba(255, 99, 132, 0.7)'
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: {
+                            x: { stacked: false },
+                            y: { beginAtZero: true }
+                        }
+                    }
+                });
+            });
+    });
+</script>

@@ -1,0 +1,25 @@
+﻿@model ControlGastos.FondosMonetario
+
+<h2>Editar Fondo Monetario</h2>
+<form action="@Url.Action("GuardarEditar", "FondoMonetario")" method="post">
+    <input type="hidden" name="Id" value="@Model.Id" />
+
+    <div class="mb-3">
+        <label for="Nombre" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="Nombre" name="Nombre" value="@Model.Nombre" required>
+    </div>
+
+    <div class="mb-3">
+        <label for="Tipo" class="form-label">Tipo de Fondo Monetario</label>
+        <select class="form-control" id="Tipo" name="Tipo">
+            @foreach (var tipo in ViewBag.TipoFondosMonetarios as List<ControlGastos.TipoFondosMonetario>)
+            {
+                <option value="@tipo.Id" @(tipo.Id == Model.Tipo ? "selected" : "")>
+                    @tipo.Nombre
+                </option>
+            }
+        </select>
+    </div>
+    <button type="submit" class="btn btn-success">Guardar Cambios</button>
+    <a href="@Url.Action("Index", "FondoMonetario")" class="btn btn-secondary">Cancelar</a>
+</form>

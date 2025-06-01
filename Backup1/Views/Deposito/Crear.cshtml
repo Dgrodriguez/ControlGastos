@@ -1,0 +1,41 @@
+﻿@model ControlGastos.Deposito
+
+<h2>Cargar Depósito</h2>
+
+<form action="@Url.Action("Crear", "Deposito")" method="post">
+    <input type="hidden" asp-for="Id" /> <!-- 🔹 Para enviar el ID del depósito en la actualización -->
+
+    <div class="form-group">
+        <label>Fecha:</label>
+        <input type="date" asp-for="Fecha" name="Fecha" class="form-control" required>
+        <span asp-validation-for="Fecha" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label>Fondo Monetario:</label>
+        <select asp-for="IdFondoMonetario" name="IdFondoMonetario" class="form-control">
+            <option value="" selected disabled>Seleccione un fondo</option>
+            @if (ViewBag.Fondos != null && ViewBag.Fondos is List<ControlGastos.FondosMonetario>)
+            {
+                foreach (var tipo in (List<ControlGastos.FondosMonetario>)ViewBag.Fondos)
+                {
+                    <option value="@tipo.Id">@tipo.Nombre</option>
+                }
+            }
+        </select>
+        <span asp-validation-for="IdFondoMonetario" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label>Monto:</label>
+        <input type="number" asp-for="Monto" name="Monto" step="0.01" class="form-control" required>
+        <span asp-validation-for="Monto" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-warning">
+        <i class="fas fa-edit"></i> Guardar Cambios
+    </button>
+    <a href="@Url.Action("Index")" class="btn btn-secondary">
+        <i class="fas fa-arrow-left"></i> Cancelar
+    </a>
+</form>

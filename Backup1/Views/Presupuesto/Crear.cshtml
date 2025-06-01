@@ -1,0 +1,49 @@
+﻿@model List<ControlGastos.Models.Presupuesto>
+@{ Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<h2>Cargar Presupuesto</h2>
+
+<form action="@Url.Action("Crear", "Presupuesto")" method="post">
+    <div class="mb-3">
+        <label for="IdMes" class="form-label">Mes del Presupuesto</label>
+        <select class="form-control" id="IdMes" name="IdMes" required>
+            <option value="" selected disabled>Seleccione</option>
+            <option value="1">Enero</option>
+            <option value="2">Febrero</option>
+            <option value="3">Marzo</option>
+            <option value="4">Abril</option>
+            <option value="5">Mayo</option>
+            <option value="6">Junio</option>
+            <option value="7">Julio</option>
+            <option value="8">Agosto</option>
+            <option value="9">Septiembre</option>
+            <option value="10">Octubre</option>
+            <option value="11">Noviembre</option>
+            <option value="12">Diciembre</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label for="Anio" class="form-label">Año del Presupuesto</label>
+        <input type="number" class="form-control" id="Anio" placeholder="2025" name="Anio" required>
+    </div>
+
+    <div class="mb-3">
+        <label for="IdTipoGasto" class="form-label">Tipo de Gasto</label>
+        <select class="form-control" id="IdTipoGasto" name="IdTipoGasto">
+            <option value="" selected disabled>Seleccione</option>
+            @foreach (var tipo in ViewBag.TipoGasto as List<ControlGastos.TiposGasto>)
+            {
+                <option value="@tipo.Id">@tipo.Nombre</option>
+            }
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label for="Monto" class="form-label">Monto del Presupuesto</label>
+        <input type="number" class="form-control" id="Monto" name="Monto" placeholder="1000000" required>
+    </div>
+
+    <button type="submit" class="btn btn-success">Guardar</button>
+    <a href="@Url.Action("Index", "Presupuesto")" class="btn btn-secondary">Cancelar</a>
+</form>

@@ -1,0 +1,39 @@
+﻿@model ControlGastos.Deposito
+
+<h2>Editar Depósito</h2>
+
+<form action="@Url.Action("Editar", "Deposito")" method="post">
+    <input type="hidden" name="Id" value="@Model.Id"/>
+
+    <div class="form-group">
+        <label>Fecha:</label>
+        <input type="date" id="Fecha" name="Fecha" value="@Model.Fecha.ToString("yyyy-MM-dd")" class="form-control" required>
+ 
+    </div>
+
+    <div class="form-group">
+        <label>Fondo Monetario:</label>
+        <select name="IdFondoMonetario" id="IdFondoMonetario" class="form-control">
+            <option value="" selected disabled>Seleccione un fondo</option>
+            @if (ViewBag.Fondos != null && ViewBag.Fondos is List<ControlGastos.FondosMonetario>)
+            {
+                foreach (var tipo in (List<ControlGastos.FondosMonetario>)ViewBag.Fondos)
+                {
+                    <option value="@tipo.Id" @(tipo.Id == Model.IdFondoMonetario ? "selected" : "")>@tipo.Nombre</option>
+                }
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Monto:</label>
+        <input type="number" name="Monto" id="Monto" value="@((int)Model.Monto)" step="0.01" class="form-control" required>
+    </div>
+
+    <button type="submit" class="btn btn-warning">
+        <i class="fas fa-edit"></i> Guardar Cambios
+    </button>
+    <a href="@Url.Action("Index")" class="btn btn-secondary">
+        <i class="fas fa-arrow-left"></i> Cancelar
+    </a>
+</form>

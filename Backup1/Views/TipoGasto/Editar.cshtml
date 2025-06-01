@@ -1,0 +1,15 @@
+﻿@model ControlGastos.TiposGasto
+
+<h2>Editar Tipo de Gasto</h2>
+
+<form action="@Url.Action("Editar", "TipoGasto")" method="post">
+    <input type="hidden" name="Id" value="@Model.Id" />
+
+    <div class="mb-3">
+        <label for="Nombre" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="Nombre" name="Nombre" value="@Model.Nombre" required>
+    </div>
+
+    <button type="submit" class="btn btn-success">Guardar Cambios</button>
+    <a href="@Url.Action("Index", "TipoGasto")" class="btn btn-secondary">Cancelar</a>
+</form>

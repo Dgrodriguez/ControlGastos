@@ -1,0 +1,50 @@
+﻿@model List<ControlGastos.Models.FondosMonetarios>
+@using ControlGastos.Models
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+
+    <a href="@Url.Action("Crear", "FondoMonetario")" class="btn btn-primary mb-3">
+        <i class="fas fa-plus"></i> Agregar Nuevo
+    </a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Tipo</th>
+                <th>Nombre</th>
+                <th>FechaCreacion</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var Fondo in Model)
+            {
+                <tr>
+                    <td>@Fondo.Id</td>
+                    <td>@Fondo.TipoNombre</td>
+                    <td>@Fondo.Nombre</td>
+                    <td>@Fondo.FechaCreacion</td>
+                    <td>
+                        <a href="@Url.Action("Editar", new { id = Fondo.Id })" class="btn btn-warning">
+                            <i class="fas fa-edit"></i> Editar
+                        </a>
+                        <a href="@Url.Action("Eliminar", new { id = Fondo.Id })" class="btn btn-danger"
+                           onclick="return confirm('¿Seguro que deseas eliminar este registro?');">
+                            <i class="fas fa-trash"></i> Eliminar
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>
