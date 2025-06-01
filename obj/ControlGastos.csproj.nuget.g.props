@@ -14,11 +14,4 @@
     <SourceRoot Include="C:\Program Files\DevExpress 24.2\Components\Offline Packages\" />
     <SourceRoot Include="C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\" />
   </ItemGroup>
-  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <PkgDevExpress_Data Condition=" '$(PkgDevExpress_Data)' == '' ">C:\Program Files\DevExpress 24.2\Components\Offline Packages\devexpress.data\24.2.7</PkgDevExpress_Data>
-    <PkgDevExpress_Xpo Condition=" '$(PkgDevExpress_Xpo)' == '' ">C:\Program Files\DevExpress 24.2\Components\Offline Packages\devexpress.xpo\24.2.7</PkgDevExpress_Xpo>
-    <PkgDevExpress_Web Condition=" '$(PkgDevExpress_Web)' == '' ">C:\Program Files\DevExpress 24.2\Components\Offline Packages\devexpress.web\24.2.7</PkgDevExpress_Web>
-    <PkgDevExpress_DataAccess Condition=" '$(PkgDevExpress_DataAccess)' == '' ">C:\Program Files\DevExpress 24.2\Components\Offline Packages\devexpress.dataaccess\24.2.7</PkgDevExpress_DataAccess>
-    <PkgDevExpress_Utils Condition=" '$(PkgDevExpress_Utils)' == '' ">C:\Program Files\DevExpress 24.2\Components\Offline Packages\devexpress.utils\24.2.7</PkgDevExpress_Utils>
-  </PropertyGroup>
 </Project>

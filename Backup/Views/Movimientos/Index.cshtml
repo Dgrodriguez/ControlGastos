@@ -1,0 +1,54 @@
+﻿@model List<ControlGastos.Models.Movimiento>
+
+<div class="container mt-4">
+    <h2 class="text-center">Movimientos por Rango de Fechas</h2>
+
+    <!-- Formulario de búsqueda -->
+    <form action="@Url.Action("FiltrarPorFechas", "Movimientos")" method="get" class="d-flex justify-content-center align-items-center gap-3 mb-4">
+        <div class="d-flex align-items-center gap-2">
+            <label for="FechaInicio" class="form-label">Fecha Inicio:</label>
+            <input type="date" id="FechaInicio" name="FechaInicio" class="form-control" required
+                   value="@Request.QueryString["FechaInicio"]">
+        </div>
+
+        <div class="d-flex align-items-center gap-2">
+            <label for="FechaFin" class="form-label">Fecha Fin:</label>
+            <input type="date" id="FechaFin" name="FechaFin" class="form-control" required
+                   value="@Request.QueryString["FechaFin"]">
+        </div>
+
+        <div class="mt-4">
+            <button type="submit" class="btn btn-primary">Filtrar</button>
+        </div>
+    </form>
+
+    <!-- Tabla de resultados -->
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>Fecha</th>
+                <th>Tipo</th>
+                <th>Monto</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (var movimiento in Model)
+                {
+                    <tr>
+                        <td>@movimiento.Fecha.ToString("yyyy-MM-dd")</td>
+                        <td>@movimiento.Tipo</td>
+                        <td>@movimiento.Monto.ToString("C")</td> <!-- Formato moneda -->
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="3" class="text-center text-muted">No hay movimientos en el rango seleccionado.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

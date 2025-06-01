@@ -1,0 +1,42 @@
+﻿@model List<DepositoViewModel>
+
+<h2>Depósitos Registrados</h2>
+
+@if (TempData["Mensaje"] != null)
+{
+    <div class="alert alert-success">@TempData["Mensaje"]</div>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Fecha</th>
+            <th>Fondo Monetario</th>
+            <th>Monto</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var deposito in Model)
+        {
+            <tr>
+                <td>@deposito.Fecha.ToString("dd/MM/yyyy")</td>
+                <td>@deposito.FondoNombre</td>
+                <td>@deposito.Monto.ToString("C")</td>
+                <td>
+                    <a href="@Url.Action("Editar", new { id = deposito.Id })" class="btn btn-warning">
+                        <i class="fas fa-edit"></i> Editar
+                    </a>
+                    <a href="@Url.Action("Eliminar", new { id = deposito.Id })" class="btn btn-danger"
+                       onclick="return confirm('¿Seguro que deseas eliminar este depósito?');">
+                        <i class="fas fa-trash"></i> Eliminar
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("Crear")" class="btn btn-primary">
+    <i class="fas fa-plus"></i> Registrar Nuevo Depósito
+</a>

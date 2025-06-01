@@ -48,10 +48,6 @@
       "frameworks": {
         "net48": {
           "dependencies": {
-            "DevExpress.Web.Mvc": {
-              "target": "Package",
-              "version": "[24.2.7, )"
-            },
             "Microsoft.AspNet.Mvc": {
               "target": "Package",
               "version": "[5.2.9, )"
