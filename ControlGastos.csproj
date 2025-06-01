@@ -44,7 +44,6 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="bootstrap" Version="5.3.6" />
-    <PackageReference Include="DevExpress.Web.Mvc" Version="24.2.7" />
     <PackageReference Include="Microsoft.AspNet.Mvc">
       <Version>5.2.9</Version>
     </PackageReference>
