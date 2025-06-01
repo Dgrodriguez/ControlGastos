@@ -1,13 +1,6 @@
 C:\Users\dgrga\OneDrive\Documentos\programacion\ControlGastos\bin\ControlGastos.dll
 C:\Users\dgrga\OneDrive\Documentos\programacion\ControlGastos\bin\ControlGastos.pdb
-C:\Users\dgrga\OneDrive\Documentos\programacion\ControlGastos\bin\es\System.Web.Mvc.resources.dll
-C:\Users\dgrga\OneDrive\Documentos\programacion\ControlGastos\bin\es\System.Web.Razor.resources.dll
-C:\Users\dgrga\OneDrive\Documentos\programacion\ControlGastos\bin\es\System.Web.Helpers.resources.dll
-C:\Users\dgrga\OneDrive\Documentos\programacion\ControlGastos\bin\es\System.Web.WebPages.Deployment.resources.dll
-C:\Users\dgrga\OneDrive\Documentos\programacion\ControlGastos\bin\es\System.Web.WebPages.Razor.resources.dll
-C:\Users\dgrga\OneDrive\Documentos\programacion\ControlGastos\bin\es\System.Web.WebPages.resources.dll
 C:\Users\dgrga\OneDrive\Documentos\programacion\ControlGastos\bin\Microsoft.Web.Infrastructure.dll
-C:\Users\dgrga\OneDrive\Documentos\programacion\ControlGastos\bin\System.Drawing.Common.dll
 C:\Users\dgrga\OneDrive\Documentos\programacion\ControlGastos\bin\Antlr3.Runtime.dll
 C:\Users\dgrga\OneDrive\Documentos\programacion\ControlGastos\bin\DevExpress.Data.v24.2.dll
 C:\Users\dgrga\OneDrive\Documentos\programacion\ControlGastos\bin\DevExtreme.AspNet.Data.dll
