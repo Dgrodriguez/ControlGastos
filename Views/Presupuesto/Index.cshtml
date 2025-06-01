@@ -1,0 +1,49 @@
+﻿@model List<ControlGastos.Models.Presupuesto>
+@using System.Globalization
+@{ Layout = "~/Views/Shared/_Layout.cshtml"; }
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <a href="@Url.Action("Crear", "Presupuesto")" class="btn btn-primary mb-3">
+        <i class="fas fa-plus"></i> Cargar Presupuesto
+    </a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Mes</th>
+                <th>Año</th>
+                <th>TipoGasto</th>
+                <th>Monto</th>
+                <th>Creador</th>
+                <th>Fecha Creación</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var Presupuesto in Model)
+            {
+                <tr>
+                    <td>@Presupuesto.NumeroPos</td>
+                    <td>@Presupuesto.Mes</td>
+                    <td>@Presupuesto.Anio</td>
+                    <td>@Presupuesto.TipoGasto</td>
+                    <td>@Presupuesto.Monto.ToString("C", CultureInfo.GetCultureInfo("es-CO"))</td>
+                    <td>@Presupuesto.Creador</td>
+                    <td>@Presupuesto.FechaCreacion</td>
+                    <td>
+                        <a href="@Url.Action("Eliminar", new { id = Presupuesto.Id })" class="btn btn-danger"
+                           onclick="return confirm('¿Seguro que deseas eliminar este registro?');">
+                            <i class="fas fa-trash"></i> Eliminar
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>

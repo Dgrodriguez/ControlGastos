@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a4766c4e92c44019aca00edf9022ac9a" Name="Diagram1">
+        <EntityTypeShape EntityType="ControlGastosModel.Deposito" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ControlGastosModel.FondosMonetario" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ControlGastosModel.Gasto" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="ControlGastosModel.GastosDetalle" Width="1.5" PointX="2.75" PointY="3.75" />
+        <EntityTypeShape EntityType="ControlGastosModel.Presupuesto" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ControlGastosModel.TipoDocumentoGasto" Width="1.5" PointX="4.75" PointY="4.75" />
+        <EntityTypeShape EntityType="ControlGastosModel.TipoFondosMonetario" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ControlGastosModel.TiposGasto" Width="1.5" PointX="6.75" PointY="3.75" />
+        <EntityTypeShape EntityType="ControlGastosModel.Usuario" Width="1.5" PointX="6.75" PointY="6.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
